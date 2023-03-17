@@ -63,6 +63,7 @@ export default {
 
 .page_table {
   width: 100%;
+  height: 30%;
 }
 
 .page_theadTr {

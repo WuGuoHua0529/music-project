@@ -6,6 +6,11 @@
     <div class="page">
       <div class="page_bk page_bk1"></div>
       <PageContent :data="pageData[1]" />
+      <div
+        v-show="!arrowStatus"
+        class="pageArrow"
+        @click="nextPage"
+      ></div>
     </div>
     <div class="page">
       <div class="page_bk page_bk2"></div>
@@ -53,13 +58,22 @@ export default {
       container.value.addEventListener("wheel", (event) => {
         event.preventDefault();
         container.value.scrollLeft += event.deltaY;
+        arrowStatus.value = !(container.value.scrollLeft <= 100);
       });
     });
 
+    const arrowStatus = ref(false);
+
+    function nextPage () {
+      arrowStatus.value = true;
+      container.value.scrollLeft += 1060;
+    }
 
     return {
       container,
-      pageData
+      pageData,
+      arrowStatus,
+      nextPage
     };
   }
 }
@@ -76,6 +90,7 @@ export default {
   height: 100vh;
   flex-shrink: 0;
   background-color: #1b1b1b;
+  position: relative;
 }
 
 .page_bk {
@@ -86,17 +101,54 @@ export default {
 }
 
 .page_bk1 {
-  background-image: url("../assets/music_1.jpeg");
+  background-image: url("../assets/images/home/music_1.jpeg");
   background-size: 100vw;
 }
 
 .page_bk2 {
-  background-image: url("../assets/music_2.jpeg");
+  background-image: url("../assets/images/home/music_2.jpeg");
   background-size: 100vw;
 }
 
 .page_bk3 {
-  background-image: url("../assets/music_3.jpeg");
+  background-image: url("../assets/images/home/music_3.jpeg");
   background-size: 100vw;
+}
+
+@keyframes blink-smooth {
+  to {
+    background-color: transparent;
+  }
+}
+
+.pageArrow {
+  background-color: rgba(255, 255, 255, 0.533);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 46%;
+  right: 0;
+  cursor: pointer;
+  animation: 0.5s blink-smooth 10 alternate;
+}
+
+.pageArrow:before {
+  content: "GO!";
+  display: block;
+  position: absolute;
+  right: 35%;
+  top: 20%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(50deg);
+  font-weight: bold;
+}
+
+.pageArrow:hover::before {
+  right: 42%;
+  top: 30%;
+  transform: rotate(10deg);
+  color: #a32626;
 }
 </style>

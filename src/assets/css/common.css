@@ -1,0 +1,22 @@
+.title {
+  font-size: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: bold;
+  font-family: "RobotoCondensed";
+  color: #222;
+  position: relative;
+  line-height: 3rem;
+  border-bottom: 4px solid #dedede;
+  text-transform: uppercase;
+}
+
+.title::before {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 4px;
+  background: #a32626;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
