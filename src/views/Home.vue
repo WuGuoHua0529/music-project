@@ -66,7 +66,7 @@ export default {
 
     function nextPage () {
       arrowStatus.value = true;
-      container.value.scrollLeft += 1060;
+      container.value.scrollLeft += document.body.clientWidth;
     }
 
     return {
