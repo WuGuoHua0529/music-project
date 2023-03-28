@@ -5,7 +5,7 @@ const ghpages = require('gh-pages');
 
 const options = {
   branch: 'gh-pages',
-  repo: 'git@github.com:WuGuoHua0529/music-projecty.git' // project github repo
+  repo: 'git@github.com:WuGuoHua0529/music-project.git' // project github repo
 };
 
 const callback = err => {
