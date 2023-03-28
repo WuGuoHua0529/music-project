@@ -41,7 +41,6 @@ export default {
     const isColor = ref('');
 
     onMounted(() => {
-      console.log(getRandomColor());
       isColor.value = getRandomColor();
     });
 
