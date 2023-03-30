@@ -3,7 +3,7 @@
 此為一個使用Vue 3 建立得專案，主題為音樂專輯。
 
 ## Demo
-http://localhost:8080/music-project/
+https://wuguohua0529.github.io/music-project/
 
 ## Project setup
 ```
